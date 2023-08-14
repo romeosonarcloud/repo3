@@ -15,9 +15,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v3
+        with:
+            fetch-depth: 0
+
+      - name: Restore dependencies
+        run: dotnet restore
+
       - name: Analyze with SonarCloud
         run: |
          dotnet tool install --global dotnet-sonarscanner
-         dotnet sonarscanner begin /o:romeosonarcloud /k:romeosonarcloud_repo3 /d:sonar.host.url=https://sonarcloud.io
+         dotnet sonarscanner begin /o:romeosonarcloud /k:romeosonarcloud_repo3 /d:sonar.host.url=https://sonarcloud.io /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
          dotnet build ./WebApplication3.sln --configuration Release --no-restore
-         dotnet sonarscanner end
+         dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
