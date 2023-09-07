@@ -25,6 +25,6 @@ jobs:
       - name: Analyze with SonarCloud
         run: |
          dotnet tool install --global dotnet-sonarscanner
-         dotnet sonarscanner begin /o:romeosonarcloud /k:romeosonarcloud_repo3 /d:sonar.host.url=https://sonarcloud.io /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
-         dotnet build ./WebApplication3.sln --configuration Release --no-restore
-         dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+         #dotnet sonarscanner begin /o:romeosonarcloud /k:romeosonarcloud_repo3 /d:sonar.host.url=https://sonarcloud.io /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+         #dotnet build ./WebApplication3.sln --configuration Release --no-restore
+         #dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
