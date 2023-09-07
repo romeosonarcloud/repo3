@@ -19,3 +19,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.organization=romeosonarcloud
+            -Dsonar.projectKey=romeosonarcloud_repo3
+            -Dsonar.verbose=true
